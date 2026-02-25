@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Erick Merari Hurtado Gallardo</title>
+    <style>
+        :root { --primary-color: #003366; --secondary-color: #2c3e50; --accent-color: #e74c3c; --bg-color: #f4f7f6; --text-color: #333; --white: #ffffff; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: var(--text-color); background-color: var(--bg-color); margin: 0; padding: 20px; }
+        .container { max-width: 900px; margin: 0 auto; background: var(--white); padding: 40px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); border-radius: 8px; position: relative; }
+        
+        .lang-switch { position: absolute; top: 20px; right: 20px; }
+        .lang-btn { text-decoration: none; background: #eee; padding: 8px 15px; border-radius: 20px; color: #333; font-weight: bold; border: 1px solid #ccc; transition: all 0.3s; display: flex; align-items: center; gap: 5px; }
+        .lang-btn:hover { background: var(--primary-color); color: white; border-color: var(--primary-color); }
+
+        header { border-bottom: 2px solid var(--primary-color); padding-bottom: 20px; margin-bottom: 30px; margin-top: 20px;}
+        h1 { color: var(--primary-color); margin: 0; font-size: 2.2em; text-transform: uppercase; letter-spacing: 1px; }
+        .subtitle { font-size: 1.2em; color: var(--accent-color); font-weight: bold; margin-top: 5px; }
+        .contact-info { margin-top: 15px; font-size: 0.95em; color: var(--secondary-color); }
+        .contact-info span { margin-right: 15px; display: inline-block; }
+        h2 { color: var(--primary-color); border-left: 5px solid var(--accent-color); padding-left: 10px; margin-top: 30px; font-size: 1.4em; text-transform: uppercase; }
+        .job { margin-bottom: 25px; }
+        .job-header { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; }
+        .job-title { font-weight: bold; font-size: 1.1em; color: var(--secondary-color); }
+        .company { font-weight: bold; color: var(--primary-color); }
+        .date { font-style: italic; color: #666; font-size: 0.9em; }
+        ul { list-style-type: square; margin-top: 10px; padding-left: 20px; }
+        li { margin-bottom: 6px; }
+        .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 15px; }
+        .skill-item { background: #f9f9f9; padding: 10px; border-radius: 4px; border-left: 3px solid var(--secondary-color); }
+
+        /* Botones de acción */
+        .no-print { text-align: center; margin-top: 40px; display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
+        .print-btn, .cert-btn { color: white; border: none; padding: 12px 25px; font-size: 16px; border-radius: 5px; cursor: pointer; transition: all 0.3s; display: flex; align-items: center; gap: 10px; text-decoration: none; font-weight: bold; }
+        .print-btn { background-color: var(--primary-color); }
+        .print-btn:hover { background-color: #002244; transform: translateY(-2px); }
+        .cert-btn { background-color: var(--accent-color); }
+        .cert-btn:hover { background-color: #c0392b; transform: translateY(-2px); }
+        
+        /* Lista de Certificaciones */
+        .cert-container { display: none; margin-top: 30px; text-align: left; background: #fff; border: 2px solid var(--primary-color); border-radius: 8px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); width: 100%; }
+        .cert-container.active { display: block; animation: slideDown 0.4s ease-out; }
+        .cert-header { background: var(--primary-color); color: white; padding: 15px 20px; font-size: 1.2em; font-weight: bold; }
+        .cert-body { padding: 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
+        .cert-folder { background: #fcfcfc; border: 1px solid #eee; padding: 15px; border-radius: 6px; }
+        .cert-folder h3 { margin-top: 0; font-size: 1em; color: var(--primary-color); border-bottom: 2px solid var(--accent-color); padding-bottom: 5px; margin-bottom: 10px; }
+        .cert-folder ul { list-style: none; padding: 0; margin: 0; }
+        .cert-folder li { margin-bottom: 8px; }
+        .cert-link { text-decoration: none; color: var(--secondary-color); font-size: 0.9em; display: flex; align-items: center; gap: 8px; transition: color 0.2s; }
+        .cert-link:hover { color: var(--accent-color); }
+        .cert-link i { font-style: normal; }
+        
+        @keyframes slideDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+        
+        @media (max-width: 600px) { .container { padding: 20px; } h1 { font-size: 1.8em; } .job-header { flex-direction: column; } .lang-switch { position: static; margin-bottom: 15px; text-align: right; } .no-print { flex-direction: column; align-items: center; } .cert-body { grid-template-columns: 1fr; } }
+        @media print { body { background-color: white; padding: 0; } .container { box-shadow: none; max-width: 100%; margin: 0; padding: 0; } .no-print, .lang-switch { display: none; } }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="lang-switch">
+        <a href="en.html" class="lang-btn">🇺🇸 English Version</a>
+    </div>
+
+    <header>
+        <h1>Erick Merari Hurtado Gallardo</h1>
+        <div class="subtitle">Especialista en Soporte de ATMs | Desarrollador & Analista de Datos</div>
+        <div class="contact-info">
+            <span>📍 Ciudad de México, CDMX</span>
+            <span>📞 +52 56 4918 9930</span>
+            <span>✉️ erickhurt1@gmail.com</span>
+        </div>
+    </header>
+
+    <section>
+        <h2>Resumen Profesional</h2>
+        <p>Especialista en TI con más de 15 años de experiencia en soporte crítico de ATMs y coordinación técnica, actualmente evolucionando hacia el <strong>Análisis de Datos y Desarrollo de Software</strong>. Experto en diagnóstico Nivel 2 y gestión de SLAs, ahora potenciado con capacidades avanzadas en <strong>Python, JavaScript y Ciencia de Datos</strong> para la automatización de procesos y optimización de servicios tecnológicos.</p>
+    </section>
+
+    <section>
+        <h2>Competencias Nucleares</h2>
+        <div class="skills-grid">
+            <div class="skill-item"><strong>Desarrollo & Datos:</strong> Python (Automatización/Análisis), JavaScript (Web), SQL.</div>
+            <div class="skill-item"><strong>Ciencia de Datos:</strong> Limpieza, análisis descriptivo y visualización de información.</div>
+            <div class="skill-item"><strong>Tecnología ATM:</strong> Diebold Nixdorf, Wincor, NCR, Triton (HW/SW).</div>
+            <div class="skill-item"><strong>Soporte Especializado:</strong> Diagnóstico Nivel 2, Ciclo de tickets, SLAs.</div>
+            <div class="skill-item"><strong>Infraestructura:</strong> Active Directory, Azure, Redes Cisco, Windows Server.</div>
+            <div class="skill-item"><strong>Liderazgo:</strong> Gestión de equipos técnicos y capacitación remota.</div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Experiencia Profesional</h2>
+        <div class="job">
+            <div class="job-header">
+                <div><span class="company">Corporativo Santander</span> | <span class="job-title">Ingeniero de Soporte Técnico e Implementación</span></div>
+                <span class="date">Ene 2025 – Ago 2025</span>
+            </div>
+            <ul>
+                <li>Gestioné el ciclo de vida de activos tecnológicos y tickets de servicio para usuarios corporativos y desarrolladores.</li>
+                <li>Administré la infraestructura de identidad (Active Directory/Azure), garantizando seguridad y accesos.</li>
+                <li>Mantuve el control y optimización del inventario de hardware, asegurando la trazabilidad de equipos.</li>
+            </ul>
+        </div>
+        <div class="job">
+            <div class="job-header">
+                <div><span class="company">Diebold Nixdorf</span> | <span class="job-title">Ingeniero de Reparaciones y Líder de Equipo</span></div>
+                <span class="date">May 2022 – Ene 2025</span>
+            </div>
+            <ul>
+                <li><strong>Reduje en un 20% el tiempo promedio de reparación (MTTR)</strong> mediante nuevas herramientas de diagnóstico.</li>
+                <li>Capacité y supervisé a un equipo de 5 técnicos, elevando el nivel de competencia técnica.</li>
+                <li>Ejecuté diagnósticos avanzados de fallas electrónicas/mecánicas como soporte de segundo nivel.</li>
+            </ul>
+        </div>
+        <div class="job">
+            <div class="job-header">
+                <div><span class="company">Informática Empresarial / Liderek</span> | <span class="job-title">Soporte Técnico Especializado</span></div>
+                <span class="date">Ago 2019 – Abr 2022</span>
+            </div>
+            <ul>
+                <li><strong>Aumenté la satisfacción del cliente en un 20%</strong> mediante resolución efectiva en ATMs y Cisco.</li>
+                <li>Coordiné la puesta a punto y configuración de software para equipos nuevos con evidencia fotográfica.</li>
+                <li>Gestioné mantenimiento preventivo/correctivo minimizando el tiempo de inactividad.</li>
+            </ul>
+        </div>
+        <div class="job">
+            <div class="job-header">
+                <div><span class="company">Wincor Nixdorf</span> | <span class="job-title">Soporte Retail y Soporte Nivel 2</span></div>
+                <span class="date">Ene 2008 – Ene 2012</span>
+            </div>
+            <ul>
+                <li>Actué como enlace técnico (Dispatch/L2) apoyando a ingeniería en campo para incidencias HW/SW.</li>
+                <li>Coordiné preparación de recursos informáticos para despliegues masivos.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section>
+        <h2>Educación y Certificaciones</h2>
+        <ul>
+            <li><strong>Ingeniería en Sistemas Computacionales (Trunca)</strong> - UNITEC</li>
+            <li><strong>Certificación en Python y JavaScript</strong> (2024 - Actualidad)</li>
+            <li>Cursos: Bases de datos SQL, Diseño Web (HTML/CSS), Mantenimiento de Laptops.</li>
+        </ul>
+    </section>
+
+    <div class="no-print">
+        <button class="print-btn" onclick="window.print()">🖨️ Imprimir / Guardar PDF</button>
+        <button class="cert-btn" onclick="toggleCerts()">📜 Explorar Certificaciones</button>
+        
+        <div id="certifications-container" class="cert-container">
+            <div class="cert-header">📂 Estructura de Certificaciones</div>
+            <div class="cert-body">
+                <div class="cert-folder">
+                    <h3>1. Desarrollo</h3>
+                    <ul>
+                        <li><a class="cert-link" href="certificaciones/1_Desarrollo/pilares/Constancia_EDC_BD.pdf" target="_blank">📄 Bases de Datos</a></li>
+                        <li><a class="cert-link" href="certificaciones/1_Desarrollo/pilares/Constancia_EDC_DPW.pdf" target="_blank">📄 Desarrollo Web</a></li>
+                        <li><a class="cert-link" href="certificaciones/1_Desarrollo/pilares/Constancia_EDC_PC.pdf" target="_blank">📄 Pensamiento Comp.</a></li>
+                        <li><a class="cert-link" href="certificaciones/1_Desarrollo/pilares/Constancia_EDC_PYTHON.pdf" target="_blank">📄 Python Básico</a></li>
+                    </ul>
+                </div>
+                <div class="cert-folder">
+                    <h3>2. JavaScript</h3>
+                    <ul>
+                        <li><a class="cert-link" href="certificaciones/2_Java Script/java script/Constancia_Javascript.pdf" target="_blank">📄 Certificado JS</a></li>
+                    </ul>
+                </div>
+                <div class="cert-folder">
+                    <h3>3. Python Platzi</h3>
+                    <ul>
+                        <li><a class="cert-link" href="certificaciones/3_python platzi-20260225T212416Z-1-001/python platzi/111diploma-adip-python[1].pdf" target="_blank">📄 Diploma Platzi</a></li>
+                    </ul>
+                </div>
+                <div class="cert-folder">
+                    <h3>4. Ciencia de Datos</h3>
+                    <ul>
+                        <li><a class="cert-link" href="certificaciones/4_ciencia de datos-20260225T212145Z-1-001/ciencia de datos/CD1/Constancia_EDC_CienciasDatos.pdf" target="_blank">📄 CD Nivel 1</a></li>
+                        <li><a class="cert-link" href="certificaciones/4_ciencia de datos-20260225T212145Z-1-001/ciencia de datos/CD2/Constancia_EDC_CD2.pdf" target="_blank">📄 CD Nivel 2</a></li>
+                        <li><a class="cert-link" href="certificaciones/4_ciencia de datos-20260225T212145Z-1-001/ciencia de datos/CD3/Constancia_EDC_CD3.pdf" target="_blank">📄 CD Nivel 3</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function toggleCerts() {
+        const container = document.getElementById('certifications-container');
+        container.classList.toggle('active');
+        const btn = document.querySelector('.cert-btn');
+        if (container.classList.contains('active')) {
+            btn.innerHTML = '❌ Cerrar Estructura';
+            container.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        } else {
+            btn.innerHTML = '📜 Explorar Certificaciones';
+        }
+    }
+</script>
+</body>
+</html>
