@@ -10,7 +10,7 @@
         .container { max-width: 900px; margin: 0 auto; background: var(--white); padding: 40px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); border-radius: 8px; position: relative; }
         
         .lang-switch { position: absolute; top: 20px; right: 20px; }
-        .lang-btn { text-decoration: none; background: #eee; padding: 8px 15px; border-radius: 20px; color: #333; font-weight: bold; border: 1px solid #ccc; transition: all 0.3s; display: flex; align-items: center; gap: 8px; }
+        .lang-btn { text-decoration: none; background: #eee; padding: 8px 15px; border-radius: 20px; color: #333; font-weight: bold; border: 1px solid #ccc; transition: all 0.3s; display: flex; align-items: center; gap: 5px; }
         .lang-btn:hover { background: var(--primary-color); color: white; border-color: var(--primary-color); }
 
         header { border-bottom: 2px solid var(--primary-color); padding-bottom: 20px; margin-bottom: 30px; margin-top: 20px;}
@@ -31,17 +31,17 @@
 
         /* Botones de acción */
         .no-print { text-align: center; margin-top: 40px; display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
-        .print-btn, .cert-btn { color: white; border: none; padding: 12px 25px; font-size: 16px; border-radius: 5px; cursor: pointer; transition: all 0.3s; display: flex; align-items: center; gap: 10px; }
+        .print-btn, .cert-btn { color: white; border: none; padding: 12px 25px; font-size: 16px; border-radius: 5px; cursor: pointer; transition: all 0.3s; display: flex; align-items: center; gap: 8px; }
         .print-btn { background-color: var(--primary-color); }
         .print-btn:hover { background-color: #002244; transform: translateY(-2px); }
         .cert-btn { background-color: var(--accent-color); }
         .cert-btn:hover { background-color: #c0392b; transform: translateY(-2px); }
         
         /* Lista de Certificaciones */
-        .cert-container { display: none; margin-top: 30px; text-align: left; background: #fff; border: 2px solid var(--primary-color); border-radius: 8px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.15); }
+        .cert-container { display: none; margin-top: 30px; text-align: left; background: #fff; border: 2px solid var(--primary-color); border-radius: 8px; overflow: visible; box-shadow: 0 5px 15px rgba(0,0,0,0.2); width: 100%; z-index: 1000; }
         .cert-container.active { display: block; animation: slideDown 0.4s ease-out; }
-        .cert-header { background: var(--primary-color); color: white; padding: 15px 20px; font-size: 1.2em; font-weight: bold; }
-        .cert-body { padding: 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
+        .cert-header { background: var(--primary-color); color: white; padding: 15px 20px; font-size: 1.2em; font-weight: bold; display: flex; align-items: center; gap: 8px; }
+        .cert-body { padding: 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; max-height: 600px; overflow-y: auto; }
         .cert-folder { background: #fcfcfc; border: 1px solid #eee; padding: 15px; border-radius: 6px; }
         .cert-folder h3 { margin-top: 0; font-size: 1em; color: var(--primary-color); border-bottom: 2px solid var(--accent-color); padding-bottom: 5px; margin-bottom: 10px; }
         .cert-folder ul { list-style: none; padding: 0; margin: 0; }
@@ -52,8 +52,20 @@
         
         @keyframes slideDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
         
-        @media (max-width: 600px) { .container { padding: 20px; } h1 { font-size: 1.8em; } .job-header { flex-direction: column; } .lang-switch { position: static; margin-bottom: 15px; text-align: right; } }
-        @media print { body { background-color: white; padding: 0; } .container { box-shadow: none; max-width: 100%; margin: 0; padding: 0; } .no-print, .lang-switch { display: none; } }
+        @media (max-width: 600px) { 
+            .container { padding: 20px; } 
+            h1 { font-size: 1.8em; } 
+            .job-header { flex-direction: column; } 
+            .lang-switch { position: static; margin-bottom: 15px; text-align: center; }
+            .no-print { flex-direction: column; }
+            .print-btn, .cert-btn { width: 100%; justify-content: center; }
+            .cert-body { grid-template-columns: 1fr; }
+        }
+        @media print { 
+            body { background-color: white; padding: 0; } 
+            .container { box-shadow: none; max-width: 100%; margin: 0; padding: 0; } 
+            .no-print, .lang-switch { display: none; } 
+        }
     </style>
 </head>
 <body>
@@ -77,7 +89,7 @@
 
     <section>
         <h2>Resumen Profesional</h2>
-        <p>Especialista en TI con más de 15 años de experiencia en soporte crítico de ATMs y coordinación técnica, actualmente evolucionando hacia el <strong>Análisis de Datos y Desarrollo de Software</strong>. Experto en diagnóstico de fallas, gestión de infraestructura y liderazgo técnico. Certificado en Python, JavaScript y Ciencia de Datos.</p>
+        <p>Especialista en TI con más de 15 años de experiencia en soporte crítico de ATMs y coordinación técnica, actualmente evolucionando hacia el <strong>Análisis de Datos y Desarrollo de Software</strong>. Combinación única de liderazgo técnico, resolución de problemas complejos y habilidades analíticas. Comprometido con la calidad, eficiencia operacional y la transferencia de conocimiento.</p>
     </section>
 
     <section>
@@ -151,45 +163,45 @@
     <div class="no-print">
         <button class="print-btn" onclick="window.print()">🖨️ Imprimir / Guardar PDF</button>
         <button class="cert-btn" onclick="toggleCerts()">📜 Explorar Certificaciones</button>
-        
-        <div id="certifications-container" class="cert-container">
-            <div class="cert-header">📂 Estructura de Certificaciones</div>
-            <div class="cert-body">
-                <div class="cert-folder">
-                    <h3>1. Desarrollo</h3>
-                    <ul>
-                        <li><a class="cert-link" href="certificaciones/1/Constancia_EDC_BD.pdf" target="_blank">📄 Bases de Datos</a></li>
-                        <li><a class="cert-link" href="certificaciones/1/Constancia_EDC_DPW.pdf" target="_blank">📄 Desarrollo Web</a></li>
-                        <li><a class="cert-link" href="certificaciones/1/Constancia_EDC_PC.pdf" target="_blank">📄 Pensamiento Comp.</a></li>
-                        <li><a class="cert-link" href="certificaciones/1/Constancia_EDC_PYTHON.pdf" target="_blank">📄 Python Básico</a></li>
-                    </ul>
-                </div>
-                <div class="cert-folder">
-                    <h3>2. JavaScript</h3>
-                    <ul>
-                        <li><a class="cert-link" href="certificaciones/2/Constancia_Javascript.pdf" target="_blank">📄 Certificado JS</a></li>
-                    </ul>
-                </div>
-                <div class="cert-folder">
-                    <h3>3. Python Platzi</h3>
-                    <ul>
-                        <li><a class="cert-link" href="certificaciones/3/111diploma-adip-python[1].pdf" target="_blank">📄 Diploma Platzi</a></li>
-                    </ul>
-                </div>
-                <div class="cert-folder">
-                    <h3>4. Ciencia de Datos</h3>
-                    <ul>
-                        <li><a class="cert-link" href="certificaciones/4/CD1/Constancia_EDC_CienciasDatos.pdf" target="_blank">📄 CD Nivel 1</a></li>
-                        <li><a class="cert-link" href="certificaciones/4/CD2/Constancia_EDC_CD2.pdf" target="_blank">📄 CD Nivel 2</a></li>
-                        <li><a class="cert-link" href="certificaciones/4/CD3/Constancia_EDC_CD3.pdf" target="_blank">📄 CD Nivel 3</a></li>
-                    </ul>
-                </div>
-                <div class="cert-folder">
-                    <h3>5. Temas Especiales</h3>
-                    <ul>
-                        <li><a class="cert-link" href="certificaciones/5/Constancia_EDC_TN%20(1).pdf" target="_blank">📄 Temas Especiales</a></li>
-                    </ul>
-                </div>
+    </div>
+
+    <div id="certifications-container" class="cert-container">
+        <div class="cert-header">📂 Estructura de Certificaciones</div>
+        <div class="cert-body">
+            <div class="cert-folder">
+                <h3>1. Desarrollo</h3>
+                <ul>
+                    <li><a class="cert-link" href="certificaciones/1/Constancia_EDC_BD.pdf" target="_blank">📄 Bases de Datos</a></li>
+                    <li><a class="cert-link" href="certificaciones/1/Constancia_EDC_DPW.pdf" target="_blank">📄 Desarrollo Web</a></li>
+                    <li><a class="cert-link" href="certificaciones/1/Constancia_EDC_PC.pdf" target="_blank">📄 Pensamiento Comp.</a></li>
+                    <li><a class="cert-link" href="certificaciones/1/Constancia_EDC_PYTHON.pdf" target="_blank">📄 Python Básico</a></li>
+                </ul>
+            </div>
+            <div class="cert-folder">
+                <h3>2. JavaScript</h3>
+                <ul>
+                    <li><a class="cert-link" href="certificaciones/2/Constancia_Javascript.pdf" target="_blank">📄 Certificado JS</a></li>
+                </ul>
+            </div>
+            <div class="cert-folder">
+                <h3>3. Python Platzi</h3>
+                <ul>
+                    <li><a class="cert-link" href="certificaciones/3/111diploma-adip-python[1].pdf" target="_blank">📄 Diploma Platzi</a></li>
+                </ul>
+            </div>
+            <div class="cert-folder">
+                <h3>4. Ciencia de Datos</h3>
+                <ul>
+                    <li><a class="cert-link" href="certificaciones/4/CD1/Constancia_EDC_CienciasDatos.pdf" target="_blank">📄 CD Nivel 1</a></li>
+                    <li><a class="cert-link" href="certificaciones/4/CD2/Constancia_EDC_CD2.pdf" target="_blank">📄 CD Nivel 2</a></li>
+                    <li><a class="cert-link" href="certificaciones/4/CD3/Constancia_EDC_CD3.pdf" target="_blank">📄 CD Nivel 3</a></li>
+                </ul>
+            </div>
+            <div class="cert-folder">
+                <h3>5. Temas Especiales</h3>
+                <ul>
+                    <li><a class="cert-link" href="certificaciones/5/Constancia_EDC_TN%20(1).pdf" target="_blank">📄 Temas Especiales</a></li>
+                </ul>
             </div>
         </div>
     </div>
